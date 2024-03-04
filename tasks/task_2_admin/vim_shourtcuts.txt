@@ -1,0 +1,57 @@
+##
+# Normally @ Navigation Mode
+##
+* navigation using Arrows
+     OR
+* Navigation using Vi navigation style
+h -> Left
+j -> Down
+k -> Up
+l -> Right
+
+* yy       -> copy line
+* p        -> paste
+* / + text -> search
+* n        -> Next search pattern
+* N        -> Previous search Pattern
+* u        -> undo
+* dd       -> delete line
+* dw       -> delete word
+* ds       -> delete to end, from the ursor to the end of the line
+* x        -> cut character
+* b        -> backward, move the cursor to the begining of the word
+* CTRL + r -> redo
+* 0        -> jumps to beginning of the line
+* $        -> cursor jums to the end f the line
+* gg       -> Move to the beginning of the file
+
+##
+# Navigation Mode -> Editing Mode
+##
+press -> i
+
+##
+# Editing Mode -> Navigation Mode
+##
+press -> ESC
+
+##
+# Navigation Mode -> Command Mode
+##
+press -> Shift + ;
+
+* :w             -> save
+* :w <file_name> -> save as new file
+* :q             -> exit
+* :q!            -> exit without saving
+* :wq            -> save + exit
+* :set hlsearch  -> set highlite search 
+* :set numbers   -> display line numbers
+* :set nonumbers -> don't display the line numbers
+* :set spell     -> Enable spell check
+* :set nospell   -> Disable spell check
+* :e <file_name> -> open a file by vim
+* :ser syntax=python -> enable python syntax formatter
+* :syntax on     -> Enable syntax highlight
+* :syntax off    -> Disable syntax hightlight
+* :

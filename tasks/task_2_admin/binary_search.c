@@ -26,11 +26,11 @@ int binarySearch (int arr[], int size, int item) {
 		int m = l + (r - l) / 2;
 
 		// Check if x is present at mid
-		if (arr[m] == x)
+		if (arr[m] == item)
 			return m;
 
 		// If x is greater, ignore left half
-		if (arr[m] < x)
+		if (arr[m] < item)
 			l = m + 1;
 
 		// If x is smaller, ignore the right half

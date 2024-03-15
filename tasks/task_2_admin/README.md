@@ -57,4 +57,5 @@ Press "Shift + ;" to enter the Command Mode.
 14) :e <file_name> -> Enable Python Syntax Formatter 
 
 
+
 Best Wishes :)

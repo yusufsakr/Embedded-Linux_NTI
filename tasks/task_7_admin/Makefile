@@ -16,8 +16,10 @@ AR_FLAGS   = rcs
 
 TARGET_ST_LIB  = libmath.a
 TARGET_DY_LIB  = libmath.so
-TARGET_ST  = main_st.elf
-TARGET_DY  = main_dy.elf
+TARGET_ST_NTV  = main_st_x86.elf
+TARGET_ST_CRS  = main_st_arm.elf
+TARGET_DY_NTV  = main_dy_x86.elf
+TARGET_DY_CRS  = main_dy_arm.elf
 SOURCES    = $(shell echo lib/*.c)
 HEADERS    = $(shell echo includes/*.h)
 MAIN       = main.c 
@@ -27,22 +29,22 @@ OBJECTS    = $(SOURCES:.c=.o)
 static_native :
 	$(CC) $(CC_ST_OBJ) $(SOURCES)
 	ar $(AR_FLAGS) lib/$(TARGET_ST_LIB) $(OBJECTS)
-	$(CC) -static $(MAIN) $(CC_ST_ELF) -o $(TARGET_ST) 
+	$(CC) -static $(MAIN) $(CC_ST_ELF) -o $(TARGET_ST_NTV) 
 
 dynamic_native :
 	$(CC) $(CC_DY_OBJ) $(SOURCES)
 	$(CC) -shared -o $(TARGET_DY_LIB) $(SOURCES)
-	$(CC) $(MAIN) $(CC_DY_ELF) -lmath -o $(TARGET_DY)
+	$(CC) $(MAIN) $(CC_DY_ELF) -lmath -o $(TARGET_DY_NTV)
 
 static_cross :
 	$(ARM) $(CC_ST_OBJ) $(SOURCES)
 	ar $(AR_FLAGS) lib/$(TARGET_ST_LIB) $(OBJECTS)
-	$(ARM) -static $(MAIN) $(CC_ST_ELF) -o $(TARGET_ST)
+	$(ARM) -static $(MAIN) $(CC_ST_ELF) -o $(TARGET_ST_CRS)
 
 dynamic_cross :
 	$(ARM) $(CC_DY_OBJ) $(SOURCES)
 	$(ARM) -shared -o $(TARGET_DY_LIB) $(SOURCES)
-	$(ARM) $(MAIN) $(CC_DY_ELF) -lmath -o $(TARGET_DY)
+	$(ARM) $(MAIN) $(CC_DY_ELF) -lmath -o $(TARGET_DY_CRS)
 
 clean_st:
 	rm lib/*.o lib/*.a
